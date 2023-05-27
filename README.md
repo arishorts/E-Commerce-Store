@@ -29,7 +29,7 @@ npm i
 
 &nbsp; The website can be found at: https://arishorts-e-commerce-store.herokuapp.com/
 <br>
-&nbsp; The github can be found at:https://github.com/arishorts/ecommerce-back-end
+&nbsp; The github can be found at: https://github.com/arishorts/E-Commerce-Store
 
 <img src="./client/public/images/demo1.JPG" alt="Image" width="600" height="400">
 <img src="./client/public/images/demo2.JPG" alt="Image" width="600" height="400">
