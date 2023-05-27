@@ -1,4 +1,3 @@
-// import { useReducer } from 'react';
 import {
   UPDATE_PRODUCTS,
   ADD_TO_CART,
@@ -19,7 +18,6 @@ const initialState = {
   currentCategory: "",
 };
 
-//export const reducer = (state, action) => {
 export default function reducer(state = initialState, action) {
   switch (action.type) {
     case UPDATE_PRODUCTS:
@@ -87,13 +85,7 @@ export default function reducer(state = initialState, action) {
         currentCategory: action.currentCategory,
       };
 
-    // TODO: Add a comment describing what the default case is for
-    // Your comment here
     default:
       return state;
   }
 }
-
-// export function useProductReducer(initialState) {
-//   return useReducer(reducer, initialState);
-// }
