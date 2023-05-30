@@ -13,7 +13,9 @@ function ProductList() {
 
   const { currentCategory, currentSearch } = state;
 
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  const { loading, data } = useQuery(QUERY_PRODUCTS, {
+    variables: { name: currentSearch },
+  });
 
   useEffect(() => {
     if (data) {
@@ -35,16 +37,13 @@ function ProductList() {
   }, [data, loading, dispatch]);
 
   function filterProducts() {
-    if (!currentCategory && !currentSearch) {
+    if (!currentCategory) {
       return state.products;
     }
-    console.log(currentSearch);
 
     return state.products.filter(
       (product) => product.category._id === currentCategory
     );
-
-    //What do i add here to implement the currentSearch when handler is clicked
   }
 
   return (

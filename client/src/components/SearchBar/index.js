@@ -1,12 +1,10 @@
 import React from "react";
 import { useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 import { UPDATE_SEARCH } from "../../utils/actions";
 
 const SearchBar = () => {
   const [searchBar, setSearchBar] = useState("");
-  const { currentSearch } = useSelector((state) => state);
-
   const dispatch = useDispatch();
 
   const handleSearchSubmit = async (event) => {
@@ -15,15 +13,9 @@ const SearchBar = () => {
       type: UPDATE_SEARCH,
       currentSearch: searchBar,
     });
-    setSearchBar(""); // Reset the search bar to an empty string
-  };
 
-  const handleChange = (event) => {
-    const { name, value } = event.target;
-    setSearchBar({
-      ...searchBar,
-      [name]: value,
-    });
+    //why doesnt this reset work?
+    setSearchBar(""); // Reset the search bar to an empty string
   };
 
   return (
@@ -35,7 +27,9 @@ const SearchBar = () => {
             name="search"
             type="text"
             id="search"
-            onChange={handleChange}
+            onChange={(e) => {
+              setSearchBar(e.target.value);
+            }}
           />
 
           <button type="submit">Submit</button>

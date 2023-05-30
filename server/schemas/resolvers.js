@@ -15,7 +15,6 @@ const resolvers = {
         params.category = category;
       }
 
-      //Added name so that i could search for the inteded product
       if (name) {
         params.name = {
           $regex: name,
