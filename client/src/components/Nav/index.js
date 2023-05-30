@@ -1,9 +1,20 @@
 import React from "react";
 import Auth from "../../utils/auth";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { UPDATE_SEARCH } from "../../utils/actions";
 import SearchBar from "../SearchBar";
 
 function Nav() {
+  const dispatch = useDispatch();
+
+  function handleBrandClick() {
+    dispatch({
+      type: UPDATE_SEARCH,
+      currentSearch: "",
+    });
+  }
+
   function showNavigation() {
     if (Auth.loggedIn()) {
       return (
@@ -35,7 +46,7 @@ function Nav() {
   return (
     <header className="flex-row px-1">
       <h1>
-        <Link to="/">
+        <Link to="/" onClick={handleBrandClick}>
           <span role="img" aria-label="shopping bag">
             🛍️
           </span>

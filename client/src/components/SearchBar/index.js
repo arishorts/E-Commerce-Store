@@ -27,6 +27,7 @@ const SearchBar = () => {
             name="search"
             type="text"
             id="search"
+            value={searchBar}
             onChange={(e) => {
               setSearchBar(e.target.value);
             }}
