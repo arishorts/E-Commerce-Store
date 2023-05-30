@@ -36,6 +36,11 @@ export const UPDATE_CATEGORIES = "UPDATE_CATEGORIES";
 // checks the database for alterations to the list of filter categories
 // returns the altered, new object copy
 
+export const UPDATE_SEARCH = "UPDATE_SEARCH";
+// copies the current state to a new object
+// checks the database for matching products that include searchbar value
+// returns the altered, new object copy
+
 export const UPDATE_CURRENT_CATEGORY = "UPDATE_CURRENT_CATEGORY";
 // copies the current state to a new object
 // changes the states current filter catergory to the user selection

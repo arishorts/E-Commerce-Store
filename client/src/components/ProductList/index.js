@@ -11,7 +11,7 @@ function ProductList() {
   const dispatch = useDispatch();
   const state = useSelector((state) => state);
 
-  const { currentCategory } = state;
+  const { currentCategory, currentSearch } = state;
 
   const { loading, data } = useQuery(QUERY_PRODUCTS);
 
@@ -35,13 +35,16 @@ function ProductList() {
   }, [data, loading, dispatch]);
 
   function filterProducts() {
-    if (!currentCategory) {
+    if (!currentCategory && !currentSearch) {
       return state.products;
     }
+    console.log(currentSearch);
 
     return state.products.filter(
       (product) => product.category._id === currentCategory
     );
+
+    //What do i add here to implement the currentSearch when handler is clicked
   }
 
   return (

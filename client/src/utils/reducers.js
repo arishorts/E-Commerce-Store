@@ -5,6 +5,7 @@ import {
   REMOVE_FROM_CART,
   ADD_MULTIPLE_TO_CART,
   UPDATE_CATEGORIES,
+  UPDATE_SEARCH,
   UPDATE_CURRENT_CATEGORY,
   CLEAR_CART,
   TOGGLE_CART,
@@ -16,6 +17,7 @@ const initialState = {
   cartOpen: false,
   categories: [],
   currentCategory: "",
+  currentSearch: "",
 };
 
 export default function reducer(state = initialState, action) {
@@ -77,6 +79,12 @@ export default function reducer(state = initialState, action) {
       return {
         ...state,
         categories: [...action.categories],
+      };
+
+    case UPDATE_SEARCH:
+      return {
+        ...state,
+        currentSearch: action.currentSearch,
       };
 
     case UPDATE_CURRENT_CATEGORY:
